@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -10,6 +8,7 @@ public class PlayerAnimation : MonoBehaviour
     private SpriteRenderer _renderer;
     private PlayerInput _playerInput;
     private Vector2 _direction;
+    private const string IsRun = "IsRun";
 
     private void Awake()
     {
@@ -34,7 +33,7 @@ public class PlayerAnimation : MonoBehaviour
 
         if (_direction.x < 0 || _direction.x > 0)
         {
-            _animator.SetBool("Run", true);
+            _animator.SetBool(IsRun, true);
 
             if (_direction.x < 0)
             {
@@ -47,7 +46,7 @@ public class PlayerAnimation : MonoBehaviour
         }
         else
         {
-            _animator.SetBool("Run", false);
+            _animator.SetBool(IsRun, false);
         }
     }
 }
